@@ -1,1 +1,72 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Anonymous Room Chat</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div id="loginScreen" class="screen">
+    <div class="card">
+      <h1>Anonymous Chat</h1>
+      <p class="sub">Username डालो और वो पासवर्ड जो रूम का नाम होगा</p>
+      <input id="usernameInput" type="text" placeholder="Your name" maxlength="20">
+      <input id="passwordInput" type="text" placeholder="Room password" maxlength="30">
+      <button id="joinBtn">Join Room</button>
+      <p id="loginError" class="error"></p>
+    </div>
+  </div>
+
+  <div id="chatScreen" class="screen hidden">
+    <div class="chat-container">
+      <div class="chat-header">
+        <div>
+          <span id="roomLabel"></span>
+        </div>
+        <div class="header-buttons">
+          <button id="changeNameBtn" title="Change name">✏️ Name</button>
+          <button id="exitBtn" title="Exit room">🚪 Exit</button>
+        </div>
+      </div>
+
+      <div class="chat-body">
+        <div id="messages" class="messages"></div>
+        <div id="userListPanel" class="user-list">
+          <h3>Online</h3>
+          <ul id="userList"></ul>
+        </div>
+      </div>
+
+      <div class="chat-input">
+        <button id="imageBtn" title="Image भेजो">📷</button>
+        <input id="imageFileInput" type="file" accept="image/*" class="hidden">
+        <input id="messageInput" type="text" placeholder="Message लिखो..." maxlength="500">
+        <button id="sendBtn">Send</button>
+      </div>
+      <div id="imagePreviewBar" class="image-preview-bar hidden">
+        <img id="imagePreviewThumb" alt="preview">
+        <span>Image भेजने के लिए तैयार</span>
+        <button id="cancelImageBtn">✕</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Change name modal -->
+  <div id="nameModal" class="modal hidden">
+    <div class="modal-card">
+      <h3>नया नाम डालो</h3>
+      <input id="newNameInput" type="text" maxlength="20">
+      <div class="modal-buttons">
+        <button id="saveNameBtn">Save</button>
+        <button id="cancelNameBtn">Cancel</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="script.js"></script>
+</body>
+  </html>
 
